@@ -1,28 +1,51 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- PADRÃO DE CARACTERES -->
-    <meta charset="UTF-8">
+  <title>Previsão do tempo</title>
 
-    <!-- LAYOUT MOBILE -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
-       <!-- Título da Página -->
-    <title>Previsão do tempo</title>
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="./assets/css/style.css">
 
-    <!-- Link para o arquivo CSS-->
-    <link rel="stylesheet" href="./assets/css/style.css">
+  <!-- Biblioteca Weather Icons -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css"/>
+
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
 </head>
 
 <body>
+    <div id="conteiner">
+    <!-- Tela de busca -->
+     <div id="busca-container">
+    <h1>Previsão do tempo</h1>
+    <div class="input-container">
+      <input type="text" id="cidade" placeholder="Digite o nome da cidade">
+      <button id="buscar">Buscar</button>
+      </div>
+      <p id="erro"></p>
+    </div>
+    </div>
 
-    <h1> Previsão do tempo</h1>
-    <input type="text" id="cidade" placeholder="Digite o nome da cidade">
-    <button id="Buscar">Buscar</button>
-    <div id="resultado"></div>
+    <!-- Tela de resultado -->
+    <div id="resultado-container" style="display: none">
+        <div id="caixa-clima">
+        <i class="wi wi-day-sunny" id="icone-clima"></i>
+        <span id="temperatura"></span>
+    </div>
+        
+        <p id="localizacao"></p>
+        <p id="descricao"></p>
+        <p id="data"></p>
+        <button id="voltar" class="home-btn"><i class="fa-solid fa-house" id="home-icon"></i></button>
+    </div>
+  </div>
 
-    <script src="api.js"></script>
-
+  <script src="./assets/js/api.js"></script>
 </body>
-</html>        
+</html>
