@@ -1,12 +1,17 @@
 {
   "name": "projeto_clima",
   "version": "1.0.0",
+  "description": "Aplicativo simples de clima com testes Jest",
+  "main": "index.js",
+  "type": "commonjs",
   "scripts": {
-    "test": "jest --env=node"
+    "test": "jest"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.25.0",
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
     "babel-jest": "^29.7.0",
-    "jest": "^29.7.0"
+    "jest": "^29.7.0",
+    "jsdom": "^24.0.0"
   }
 }

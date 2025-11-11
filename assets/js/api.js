@@ -5,15 +5,30 @@ document.addEventListener("DOMContentLoaded", () => {
   const resultadoContainer = document.getElementById("resultado-container");
   const erro = document.getElementById("erro");
 
-  botaoBuscar.addEventListener("click", buscarClima);
-  botaoVoltar.addEventListener("click", () => {
-    resultadoContainer.style.display = "none";
-    buscaContainer.style.display = "block";
-  });
+  // Adiciona verificação de existência dos elementos para maior robustez em ambiente de teste
+  if (botaoBuscar) {
+    botaoBuscar.addEventListener("click", buscarClima);
+  }
+  
+  if (botaoVoltar && resultadoContainer && buscaContainer) {
+    botaoVoltar.addEventListener("click", () => {
+      resultadoContainer.style.display = "none";
+      buscaContainer.style.display = "block";
+    });
+  }
 
   async function buscarClima() {
-    const cidade = document.getElementById("cidade").value.trim();
-    erro.textContent = "";
+    // Busca e verifica o elemento cidade
+    const cidadeInput = document.getElementById("cidade");
+    const cidade = cidadeInput ? cidadeInput.value.trim() : "";
+    
+    // Verifica e limpa o elemento erro
+    if (erro) {
+        erro.textContent = "";
+    } else {
+        console.error("Elemento 'erro' não encontrado.");
+        return;
+    }
 
     if (!cidade) {
       erro.textContent = "Por favor, digite o nome de uma cidade.";
@@ -21,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     try {
-      // 1️⃣ Buscar latitude e longitude da cidade
+      //  Buscar latitude e longitude da cidade
       const geoResponse = await fetch(
         `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(
           cidade
@@ -38,12 +53,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const { latitude, longitude, name, country } = geoData.results[0];
 
-      // 2️⃣ Buscar clima atual usando as coordenadas da cidade
+      //  Buscar clima atual usando as coordenadas da cidade
       const climaResponse = await fetch(
         `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`
       );
 
-      if (!climaResponse.ok) throw new Error("Erro ao buscar dados do clima");
+      if (!climaResponse.ok) throw new Error("Erro ao buscar dados do clima"); // Linha 46 original
 
       const climaData = await climaResponse.json();
       if (!climaData.current_weather) {
@@ -53,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const { temperature: temp, weathercode: codigo } =
         climaData.current_weather;
 
-      // 3️⃣ Define o ícone e descrição com base no código do tempo
+      //  Define o ícone e descrição com base no código do tempo
       const icones = {
         0: "wi-day-sunny",
         1: "wi-day-sunny-overcast",
@@ -83,13 +98,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const icone = icones[codigo] || "wi-na";
       const textoClima = descricao[codigo] || "Desconhecido";
 
-      // 4️⃣ Exibe dados na tela
+      //  Exibe dados na tela
       document.getElementById("temperatura").textContent = `${temp}°C`;
       document.getElementById("icone-clima").className = `wi ${icone}`;
       document.getElementById("localizacao").textContent = `${name}, ${country}`;
       document.getElementById("descricao").textContent = textoClima;
 
-      // 5️⃣ Data formatada
+      //  Data formatada
       const dataAtual = new Date();
       const formatador = new Intl.DateTimeFormat("pt-BR", {
         weekday: "long",
@@ -99,20 +114,22 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       document.getElementById("data").textContent = formatador.format(dataAtual);
 
-      // 6️⃣ Fundo de acordo com o horário
+      //  Fundo de acordo com o horário
       const hora = dataAtual.getHours();
       document.body.style.backgroundColor =
         hora >= 6 && hora < 18 ? "#87CEFA" : "#001F3F";
 
-      // 7️⃣ Troca de tela
-      buscaContainer.style.display = "none";
-      resultadoContainer.style.display = "block";
+      // Troca de tela
+      // Verifica se os elementos existem antes de tentar alterar o estilo
+      if (buscaContainer && resultadoContainer) {
+          buscaContainer.style.display = "none";
+          resultadoContainer.style.display = "block";
+      }
     } catch (e) {
       erro.textContent = "Erro ao buscar dados. Verifique sua conexão.";
       console.error("Erro detalhado:", e);
     }
   }
-
-  module.exports = { buscarClima };
-
+  
+  // NOTE: 'module.exports' removido daqui pois estava em escopo incorreto.
 });
