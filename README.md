@@ -158,9 +158,6 @@ Durante o desenvolvimento, foram consolidados conhecimentos em:
 
 Aline Silva
 Desenvolvedora Front-End | Estudante de Tecnologia e Inovação 💻
-
-🔗 LinkedIn
-
-🌐 Portfólio
-
+[Linkedin] (https://www.linkedin.com/in/aline-romanini/)
+[Github] (https://github.com/alineromanini)
 <p align="center">  Se este projeto te inspirou, ⭐ dê uma estrela no repositório! </p> 
