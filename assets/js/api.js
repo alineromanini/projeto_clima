@@ -112,4 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Erro detalhado:", e);
     }
   }
+
+  module.exports = { buscarClima };
+
 });
