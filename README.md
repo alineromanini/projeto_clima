@@ -1,13 +1,13 @@
-<h1 align="center">🌦️☀️ Aplicativo de Previsão do Tempo</h1>
+<h1 align="left">🌦️☀️ Aplicativo de Previsão do Tempo</h1>
 
-<p align="center">
+<p align="left">
   <img src="https://img.shields.io/badge/Status-Ativo-success?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Testes-Jest-blue?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Linguagem-JavaScript-yellow?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Licença-MIT-lightgrey?style=for-the-badge"/>
 </p>
 
-<p align="center">
+<p align="left">
   Aplicação web simples e intuitiva que permite consultar o <b>clima atual de qualquer cidade do mundo</b> 🌍<br>
   Desenvolvida em <b>HTML, CSS e JavaScript</b>, consumindo a <b>API Open-Meteo</b>.
 </p>
@@ -156,7 +156,7 @@ Durante o desenvolvimento, foram consolidados conhecimentos em:
 
 ## 👩‍💻 Autora
 
-Aline Silva
+Aline Silva -
 Desenvolvedora Front-End | Estudante de Tecnologia e Inovação 💻
 
-<p align="center">  Se este projeto te inspirou, ⭐ dê uma estrela no repositório! </p> 
+<p align="left">  Se este projeto te inspirou, ⭐ dê uma estrela no repositório! </p> 
