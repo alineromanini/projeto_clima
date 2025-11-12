@@ -1,4 +1,4 @@
-const { buscarClima } = require("../js/api-core.js");
+import { buscarClima } from "../js/api-core.js";
 
 // Supondo que fetch já esteja mockado
 global.fetch = jest.fn();

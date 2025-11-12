@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,42 +11,60 @@
   <link rel="stylesheet" href="./assets/css/style.css">
 
   <!-- Biblioteca Weather Icons -->
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css" />
 
-    <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 
 <body>
-    <div id="conteiner">
+  <div id="conteiner">
     <!-- Tela de busca -->
-     <div id="busca-container">
-    <h1>Previsão do tempo</h1>
-    <div class="input-container">
-      <input id="cidade" type="text" placeholder="Digite o nome da cidade">
-      <button id="buscar">Buscar</button>
+    <div id="busca-container">
+      <h1>Previsão do tempo</h1>
+      <div class="input-container">
+        <input id="cidade" type="text" placeholder="Digite o nome da cidade">
+        <button id="buscar">Buscar</button>
       </div>
       <p id="erro"></p>
     </div>
-    </div>
+  </div>
 
-    <!-- Tela de resultado -->
-    <div id="resultado-container" style="display: none">
-        <div id="caixa-clima">
-        <i class="wi wi-day-sunny" id="icone-clima"></i>
-        <span id="temperatura"></span>
-    </div>
-        
-        <p id="localizacao"></p>
-        <p id="descricao"></p>
-        <p id="data"></p>
-        <button id="voltar" class="home-btn"><i class="fa-solid fa-house" id="home-icon"></i></button>
+  <!-- Tela de resultado -->
+  <div id="resultado-container" style="display: none">
+    <div id="caixa-clima">
+      <i class="wi wi-day-sunny" id="icone-clima"></i>
+      <span id="temperatura"></span>
+      <p id="localizacao"></p>
+      <p id="descricao"></p>
+
+      <div id="info-extra">
+        <div class="info-card">
+          <span>🌡️ Máx</span>
+          <strong id="temp-max">--°C</strong>
+        </div>
+        <div class="info-card">
+          <span>❄️ Mín</span>
+          <strong id="temp-min">--°C</strong>
+        </div>
+        <div class="info-card">
+          <span>🌧️ Precipitação</span>
+          <strong id="precipitacao">-- mm</strong>
+        </div>
+        <div class="info-card">
+          <span>💨 Vento </span>
+          <strong id="vento">-- km/h</strong>
+        </div>
+      </div>
+
+      <p id="data"></p>
+      <button id="voltar" class="home-btn">
+        <i class="fa-solid fa-house" id="home-icon"></i>
+      </button>
     </div>
   </div>
 
-  <script src="./assets/js/api.js"></script>
+  <script type="module" src="./assets/js/api.js"></script>
+
 </body>
+
 </html>

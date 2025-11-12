@@ -28,4 +28,5 @@ async function buscarClima(cidade) {
   return climaData.current_weather;
 }
 
-module.exports = { buscarClima };
+export { buscarClima };
+
