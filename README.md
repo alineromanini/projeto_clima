@@ -8,8 +8,8 @@
 </p>
 
 <p align="left">
-  Aplicação web simples e intuitiva que permite consultar o <b>clima atual de qualquer cidade do mundo</b> 🌍<br>
-  Desenvolvida em <b>HTML, CSS e JavaScript</b>, consumindo a <b>API Open-Meteo</b>.
+  Um aplicativo simples e intuitivo que exibe informações climáticas em tempo real de qualquer cidade do mundo.</b> 🌍<br>
+  Desenvolvida em <b>HTML, CSS e JavaScript</b>, este projeto consome a <b>API Open-Meteo</b> para exibir dados precisos de temperatura, vento, umidade, precipitação e muito mais.
 </p>
 
 ---
@@ -43,16 +43,18 @@ O desenvolvimento seguiu uma metodologia **incremental e orientada a testes (TDD
 ## 🗂️ Organização do Projeto
 
 ```bash
-📁 projeto-clima
+projeto_clima/
 ├── index.html
+├── css/
+│   └── style.css
+├── js/
+│   ├── api-core.js
+│   └── main.js
 ├── assets/
-│   ├── css/
-│   │   └── style.css
-│   └── js/
-│       └── api.js
-├── __tests__/
-│   └── api.test.js
-├── README.md
+│   └── tests/
+│       └── feature.test.js
+├── jest.config.cjs
+├── babel.config.cjs
 └── package.json
 
 ```
@@ -62,7 +64,7 @@ O desenvolvimento seguiu uma metodologia **incremental e orientada a testes (TDD
 | Funcionalidade | Descrição |
 |----------------|------------|
 | 🔍 Busca de cidade | Permite ao usuário digitar o nome de uma cidade e obter os dados meteorológicos atuais. |
-| 🌡️ Exibição de temperatura | Mostra a temperatura atual e o ícone correspondente à condição climática. |
+| 🌡️ Exibição de temperatura, precipitação, velocidade do vento e temperatura mínima e máxima | Mostra a temperatura atual e o ícone correspondente à condição climática, além de informações adicionais. |
 | 🏙️ Localização e descrição | Exibe o nome da cidade e uma breve descrição do clima. |
 | 📅 Data e hora | Mostra a data e hora local atual. |
 | 🏠 Botão de voltar | Permite retornar à tela inicial de busca. |
@@ -78,6 +80,31 @@ O desenvolvimento seguiu uma metodologia **incremental e orientada a testes (TDD
 | **Lógica (JavaScript)** | Manipulação do DOM, chamadas à API e controle de exibição. |
 | **Serviço (API)** | Comunicação com a Open-Meteo para obter dados de latitude, longitude e clima. |
 | **Testes (Jest)** | Verificação de comportamento esperado e simulação de respostas da API. |
+
++-------------------------------------------------------------+
+|                         Interface (Front-end)               |
+|-------------------------------------------------------------|
+| index.html          → Estrutura principal da aplicação      |
+| style.css           → Estilos visuais e responsividade      |
++-------------------------------------------------------------+
+|                     Lógica de Aplicação (Core)              |
+|-------------------------------------------------------------|
+| main.js             → Controla interações do usuário        |
+|                      (cliques, busca e exibição dos dados)  |
+| api-core.js         → Funções que fazem a comunicação com   |
+|                      a API Open-Meteo (fetch, parse, etc.)  |
++-------------------------------------------------------------+
+|                     Camada de Testes (Qualidade)            |
+|-------------------------------------------------------------|
+| feature.test.js     → Testa variáveis meteorológicas        |
+|                      adicionais (vento, chuva, mín/máx)     |
++-------------------------------------------------------------+
+|                     Configuração e Build                    |
+|-------------------------------------------------------------|
+| babel.config.cjs    → Transpila código ES6+ para Jest       |
+| jest.config.cjs     → Configura ambiente de testes jsdom    |
+| package.json        → Scripts, dependências e metadados     |
++-------------------------------------------------------------+
 
 ---
 
@@ -146,6 +173,8 @@ Durante o desenvolvimento, foram consolidados conhecimentos em:
 
 - Boas práticas de UI/UX e semântica HTML.
 
+- Boas práticas de ética e segurança.
+
 ## 🏆 Resultados
 
 - ✨ Aplicação totalmente funcional e responsiva.
@@ -154,9 +183,11 @@ Durante o desenvolvimento, foram consolidados conhecimentos em:
 - 📄 Documentação gerada automaticamente com JSDoc.
 - 🚀 Pronta para deploy e evolução futura.
 
+## 📝 Licença
+Distribuído sob a licença MIT. Consulte o arquivo LICENSE para mais detalhes.
+
 ## 👩‍💻 Autora
 
-Aline Silva -
-Desenvolvedora Front-End | Estudante de Tecnologia e Inovação 💻
+Desenvolvido por Aline Silva -Desenvolvedora Full Stack 💻
 
 <p align="left">  Se este projeto te inspirou, ⭐ dê uma estrela no repositório! </p> 
