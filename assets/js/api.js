@@ -1,4 +1,23 @@
 // api.js
+
+async function safeFetchJson(url, opts = {}, timeout = 8000) {
+  const controller = new AbortController();
+  const id = setTimeout(() => controller.abort(), timeout);
+
+  try {
+    const res = await fetch(url, { ...opts, signal: controller.signal });
+    clearTimeout(id);
+
+    if (!res.ok) throw new Error(`Erro HTTP ${res.status}`);
+    const data = await res.json();
+    if (!data || typeof data !== "object") throw new Error("Resposta inválida");
+    return data;
+  } catch (err) {
+    clearTimeout(id);
+    throw err;
+  }
+}
+
 export async function buscarClima(cidade) {
   const erro = document.getElementById("erro");
   const tempEl = document.getElementById("temperatura");
@@ -29,7 +48,7 @@ export async function buscarClima(cidade) {
   };
 
   async function fetchJson(url, errorMsg) {
-    const response = await fetch(url);
+    const response = await safeFetchJson(url);
     if (!response.ok) throw new Error(errorMsg);
     return response.json();
   }
@@ -57,7 +76,7 @@ export async function buscarClima(cidade) {
     }
 
     // 1️⃣ Buscar coordenadas
-    const geoData = await fetchJson(
+    const geoData = await safeFetchJson(
       `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(cidade)}&count=1&language=pt&format=json`,
       "Erro ao buscar localização"
     );
@@ -70,7 +89,7 @@ export async function buscarClima(cidade) {
     const { latitude, longitude, name, country } = geoData.results[0];
 
     // 2️⃣ Buscar clima atual e diário
-    const weatherData = await fetchJson(
+    const weatherData = await safeFetchJson(
       `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&daily=temperature_2m_max,temperature_2m_min,precipitation_sum&timezone=auto`,
       "Erro ao buscar dados do clima"
     );
@@ -90,7 +109,7 @@ export async function buscarClima(cidade) {
     if (tempMaxEl) tempMaxEl.textContent = ` ${tempMax ?? "--"}°C`;
     if (tempMinEl) tempMinEl.textContent = `${tempMin ?? "--"}°C`;
     if (ventoEl) ventoEl.textContent = `${windspeed ?? "--"} km/h`;
-    if (precipitacaoEl) precipitacaoEl.textContent = `${precipitation ?? "--"} mm`;
+    if (precipitacaoEl) precipitacaoEl.textContent = ` ${precipitation ?? "--"} mm`;
 
     const dataAtual = new Date();
     dataEl.textContent = new Intl.DateTimeFormat("pt-BR", {
@@ -138,4 +157,18 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("resultado-container").style.display = "none";
     document.getElementById("busca-container").style.display = "flex";
   });
+
+  async function fetchWithTimeout(url, opts = {}, timeout = 8000) {
+  const controller = new AbortController();
+  const id = setTimeout(() => controller.abort(), timeout);
+  try {
+    const res = await safeFetchJson(url, { ...opts, signal: controller.signal });
+    clearTimeout(id);
+    return res;
+  } catch (e) {
+    clearTimeout(id);
+    throw e;
+  }
+}
+
 });

@@ -1,0 +1,65 @@
+# 📜 NOTICE
+
+### Projeto: **Aplicativo de Clima**
+**Copyright (c) 2025 Aline Silva**
+
+Este arquivo fornece informações sobre os componentes de terceiros, bibliotecas e APIs utilizados neste projeto.  
+Todos os direitos de seus respectivos autores e mantenedores são devidamente reconhecidos.  
+
+---
+
+## 🔹 1. APIs Públicas
+
+### **Open-Meteo API**
+- **URL:** [https://open-meteo.com](https://open-meteo.com)
+- **Licença:** Open Data License (gratuita para uso não comercial e educacional)
+- **Descrição:**  
+  API pública utilizada para obter dados meteorológicos em tempo real, incluindo temperatura, precipitação, vento e condições atmosféricas.
+- **Uso no projeto:**  
+  Consumo de dados de previsão do tempo via requisição HTTP segura (HTTPS), sem armazenamento de dados pessoais do usuário.
+
+### **Open-Meteo Geocoding API**
+- **URL:** [https://geocoding-api.open-meteo.com](https://geocoding-api.open-meteo.com)
+- **Licença:** Open Data License
+- **Descrição:**  
+  Serviço de geocodificação para conversão de nomes de cidades em coordenadas (latitude e longitude) utilizadas nas consultas de clima.
+
+---
+
+## 🔹 2. Bibliotecas JavaScript
+
+| Biblioteca | Licença | Repositório / Fonte | Finalidade |
+|-------------|----------|----------------------|-------------|
+| **Jest** | MIT | [https://github.com/jestjs/jest](https://github.com/jestjs/jest) | Framework de testes automatizados para garantir confiabilidade e estabilidade das funcionalidades. |
+| **Babel Core / Babel Preset Env / Babel Jest** | MIT | [https://github.com/babel/babel](https://github.com/babel/babel) | Transpilação de código moderno JavaScript (ES6+) para compatibilidade com navegadores antigos. |
+| **Cross-Env** | MIT | [https://github.com/kentcdodds/cross-env](https://github.com/kentcdodds/cross-env) | Facilita a definição de variáveis de ambiente em diferentes sistemas operacionais. |
+| **jsdom** | MIT | [https://github.com/jsdom/jsdom](https://github.com/jsdom/jsdom) | Simula o DOM em ambiente Node.js para testes de interface com Jest. |
+
+---
+
+## 🔹 3. Ícones e Recursos Visuais
+
+| Recurso | Licença | Fonte | Uso |
+|----------|----------|-------|-----|
+| **Weather Icons** | SIL Open Font License 1.1 | [https://erikflowers.github.io/weather-icons/](https://erikflowers.github.io/weather-icons/) | Conjunto de ícones utilizados para representar condições climáticas (sol, chuva, vento, etc.). |
+
+---
+
+## 🔹 4. Direitos Autorais e Responsabilidade
+
+Este projeto **não armazena, processa ou compartilha dados pessoais** dos usuários.  
+Todas as requisições a APIs externas são feitas de forma anônima e temporária (sem persistência local).
+
+O código deste projeto é licenciado sob a **Licença MIT**, conforme o arquivo [`LICENSE`](./LICENSE).  
+Cada componente de terceiro é redistribuído sob sua própria licença, compatível com o MIT.
+
+---
+
+## 🔹 5. Reconhecimento Ético
+
+A autora expressa agradecimento à comunidade open source cujas bibliotecas e ferramentas tornaram este projeto possível.  
+O uso responsável e a atribuição adequada de autoria são princípios fundamentais deste repositório.
+
+---
+
+

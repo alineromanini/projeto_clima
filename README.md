@@ -9,7 +9,7 @@
 
 <p align="left">
   Aplicação web simples e intuitiva que permite consultar o <b>clima atual de qualquer cidade do mundo</b> 🌍<br>
-  Desenvolvida em <b>HTML, CSS e JavaScript</b>, consumindo a <b>API Open-Meteo</b>.
+  Desenvolvida em <b>HTML, CSS e JavaScript</b>, consumindo a <b>API Open-Meteo</b>. O projeto inclui **testes automatizados com Jest**, boas práticas de **segurança e privacidade** e um **design responsivo** e elegante.
 </p>
 
 ---
@@ -23,6 +23,7 @@ Além da funcionalidade principal, o projeto busca demonstrar:
 - Consumo de **APIs REST** com `fetch` assíncrono.  
 - **Organização modular** do código.  
 - Documentação clara com **JSDoc** e testes com **Jest**.
+- Auditoria de segurança, privacidade, licenciamento e conformidade.
 
 ---
 
@@ -43,17 +44,24 @@ O desenvolvimento seguiu uma metodologia **incremental e orientada a testes (TDD
 ## 🗂️ Organização do Projeto
 
 ```bash
-📁 projeto-clima
-├── index.html
+projeto_clima/
 ├── assets/
 │   ├── css/
-│   │   └── style.css
-│   └── js/
-│       └── api.js
-├── __tests__/
-│   └── api.test.js
-├── README.md
-└── package.json
+│   │   └── style.css             # Estilo principal do app
+│   ├── js/
+│   │   ├── api-core.js           # Lógica principal de busca do clima
+│   │   └── index.js              # Interação com a interface (botões, eventos)
+│   └── tests/
+│       ├── api.test.js           # Testes de integração da API
+│       └── feature.test.js       # Testes das variáveis adicionais (vento, chuva etc.)
+│
+├── index.html                    # Página inicial do app
+├── notice.html                   # Página de aviso legal e créditos
+├── LICENSE                       # Licença do projeto (MIT, bilíngue)
+├── NOTICE.md                     # Créditos e atribuições de bibliotecas e APIs
+├── babel.config.cjs              # Configuração Babel
+├── jest.config.cjs               # Configuração Jest
+└── package.json                  # Dependências e scripts npm
 
 ```
 ---
@@ -67,6 +75,8 @@ O desenvolvimento seguiu uma metodologia **incremental e orientada a testes (TDD
 | 📅 Data e hora | Mostra a data e hora local atual. |
 | 🏠 Botão de voltar | Permite retornar à tela inicial de busca. |
 | ⚠️ Tratamento de erros | Exibe mensagens de erro em caso de falha na busca ou nome inválido. |
+| 🌦️ Funcionalidades adicionais | Exibe informações de velocidade do vento, precipitação e temperatura máxima e mínima. |
+| 🎯 Testes unitários | Testes unitários com Jest para checar as principais funcionalidades. |
 
 ---
 
@@ -146,6 +156,8 @@ Durante o desenvolvimento, foram consolidados conhecimentos em:
 
 - Boas práticas de UI/UX e semântica HTML.
 
+- Realização de auditoria de segurança, privacidade, licenciamento e conformidade.
+
 ## 🏆 Resultados
 
 - ✨ Aplicação totalmente funcional e responsiva.
@@ -156,7 +168,8 @@ Durante o desenvolvimento, foram consolidados conhecimentos em:
 
 ## 👩‍💻 Autora
 
-Aline Silva -
-Desenvolvedora Front-End | Estudante de Tecnologia e Inovação 💻
+Desenvolvido por Aline Silva - Contribuições são bem-vindas! Se você tiver sugestões ou melhorias, sinta-se à vontade para abrir um pull request. 💻
+
+
 
 <p align="left">  Se este projeto te inspirou, ⭐ dê uma estrela no repositório! </p> 
